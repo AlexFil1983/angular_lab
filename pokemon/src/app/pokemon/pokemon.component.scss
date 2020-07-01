@@ -1,0 +1,25 @@
+.pokemon-cardlist {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    
+}
+
+.pokemon-card {
+    // width: 200px;
+    // height: 200px;
+    border: dashed 1px black;
+    margin: 5px;
+
+    img {
+width: 200px;
+height: 200px;
+    }
+
+    button {
+        margin: 0px auto;
+        display: flex;
+        margin-bottom: 5px;
+    }
+}
