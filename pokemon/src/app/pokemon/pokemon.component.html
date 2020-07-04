@@ -1,0 +1,25 @@
+<h1>Pokemons</h1>
+
+<div [ngSwitch]="toggle">
+<div *ngSwitchCase="true">
+    <ul>
+        <li *ngFor="let pokemon of pokemonData">
+    {{pokemon.name}}
+        </li>
+    </ul>
+</div>
+<div *ngSwitchCase="false" class="pokemon-cardlist">
+<div [ngStyle]="{
+    border: pokemon.damage > 50 ? '2px solid red' : null
+}"
+
+class="pokemon-card" *ngFor="let pokemon of pokemonData">
+<img src="assets/images/{{pokemon.id}}.png" alt={{pokemon.name}}>
+<h4 style="text-align: center;">{{pokemon.name}}</h4>
+<p style="text-align: center;">Damage: {{pokemon.damage}}</p>
+<button id={{pokemon.id}} (click)="consoleStatus($event)">{{pokemon.catched ? 'Отпустить' : 'Поймать'}}</button>
+
+</div>
+</div>
+</div>
+<button (click)="toggle = !toggle">{{toggle ? "Switch to card view" :  "Switch to list view" }}</button>
