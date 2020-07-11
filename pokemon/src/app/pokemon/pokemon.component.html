@@ -1,0 +1,5 @@
+<h1>Pokemons</h1>
+<app-pokemon-cards
+[toggle]="toggle"
+></app-pokemon-cards>
+<button (click)="toggle = !toggle">{{toggle ? "Switch to card view" :  "Switch to list view" }}</button>
