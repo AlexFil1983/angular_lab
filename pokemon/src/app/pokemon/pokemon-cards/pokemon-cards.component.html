@@ -1,22 +1,17 @@
-<app-pokemon-search></app-pokemon-search>
 <div [ngSwitch]="toggle">
     <div *ngSwitchCase="true" >
-        <ul *ngFor="let pokemon of pokemonDataService.pokemonData">
+        <ul *ngFor="let pokemon of pokemonData">
            <app-pokemon-list [pokemon]="pokemon"></app-pokemon-list>
         </ul>
     </div>
     <div *ngSwitchCase="false" class="pokemon-cardlist">
-    <div *ngFor="let pokemon of pokemonDataService.getAll()">
-    <app-pokemon-card [pokemon]="pokemon" (clickHandler)="consoleStatus($event)"></app-pokemon-card>
+    <div *ngFor="let pokemon of pokemonData">
+    <a [routerLink]="['/pokemon',  pokemon.id]"><app-pokemon-card [pokemon]="pokemon" ></app-pokemon-card></a>
+    <button id={{pokemon.id}} (click)="consoleStatus($event)">{{pokemon.catched ? 'Отпустить' : 'Поймать'}}</button>
+    <button>Edit</button>
+    </div>
 
     </div>
-<h1 style="display: block; width: 100%;">Pokemons by Name or Id's</h1>
-        <app-pokemon-card [pokemon]="pokemonDataService.getByName('Venusaur')" (clickHandler)="consoleStatus($event)"></app-pokemon-card>
-        <app-pokemon-card [pokemon]="pokemonDataService.getByName('Charmeleon')" (clickHandler)="consoleStatus($event)"></app-pokemon-card>
-        <app-pokemon-card [pokemon]="pokemonDataService.getByName('Butterfree')"  (clickHandler)="consoleStatus($event)"></app-pokemon-card>
-        <app-pokemon-card [pokemon]="pokemonDataService.getById(1)" (clickHandler)="consoleStatus($event)"></app-pokemon-card>
-        <app-pokemon-card [pokemon]="pokemonDataService.getById(2)" (clickHandler)="consoleStatus($event)"></app-pokemon-card>
-        <app-pokemon-card [pokemon]="pokemonDataService.getById(3)"  (clickHandler)="consoleStatus($event)"></app-pokemon-card>
+    </div>
+
     
-    </div>
-    </div>

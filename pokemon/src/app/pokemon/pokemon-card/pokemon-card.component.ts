@@ -10,10 +10,8 @@ import { Pokemon } from './../pokemon.component';
 })
 export class PokemonCardComponent implements OnInit {
 @Input() pokemon
-@Output() clickHandler: EventEmitter<Pokemon> = new EventEmitter()
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }

@@ -1,6 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { PokemonDataService } from 'src/app/pokemon-data.service';
-import { PokemonSearchComponent} from 'src/app/pokemon/pokemon-search/pokemon-search.component'
+import { PokemonSearchComponent} from 'src/app/pokemon/pokemon-search/pokemon-search.component';
+import { Pokemon } from './../pokemon.component';
+
 
 @Component({
   selector: 'app-pokemon-cards',
@@ -8,17 +10,25 @@ import { PokemonSearchComponent} from 'src/app/pokemon/pokemon-search/pokemon-se
   styleUrls: ['./pokemon-cards.component.scss']
 })
 
-export class PokemonCardsComponent implements OnInit {
-  @Input() toggle : boolean
-  constructor(private pokemonDataService: PokemonDataService ) { }
 
-  ngOnInit(): void {
+
+export class PokemonCardsComponent implements OnInit {
+// pokemonData = this.pokemonDataService.getAll();
+
+  @Input() toggle : boolean
+  @Input() pokemonData
+  @Output() onCatchPokemon: EventEmitter<number> = new EventEmitter()
+
+  constructor() { 
+    
   }
 
+  ngOnInit(): void {
+
+  }
   consoleStatus = (event) => {
-    let pokemon = this.pokemonDataService.pokemonData.filter(item => item.id == event.target.id)[0];
-    pokemon.catched = !pokemon.catched;
-    let pokemon_status =  pokemon.catched ? "пойман" : "отпущен"
-    console.log(`${pokemon.name} был ${pokemon_status} `);
-      }
+    this.onCatchPokemon.emit(event.target.id);
+      }   
+
 }
+

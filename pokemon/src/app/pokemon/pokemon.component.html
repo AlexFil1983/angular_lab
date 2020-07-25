@@ -1,5 +1,9 @@
 <h1>Pokemons</h1>
+<app-pokemon-search (onSearchPokemon)="getPokemonData($event)"></app-pokemon-search>
+<p>{{status}}</p>
 <app-pokemon-cards
 [toggle]="toggle"
+[pokemonData]="pokemonData"
+(onCatchPokemon)="onCatchPokemon($event)"
 ></app-pokemon-cards>
 <button (click)="toggle = !toggle">{{toggle ? "Switch to card view" :  "Switch to list view" }}</button>
