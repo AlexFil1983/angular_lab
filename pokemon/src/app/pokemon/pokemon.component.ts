@@ -27,18 +27,12 @@ export class PokemonComponent implements OnInit {
 
   toggle = true;
    getPokemonData = (data) => {
-     this.status = '';
+    this.status = '';
     this.pokemonData = this.pokemonDataService.getByName(data) 
     this.pokemonDataService.getByName(data).length === 0 ? this.status  =  'Pokemon not found. Try another one' : null ;
       }
 
       onCatchPokemon = (id) => {
-        let pokemon = this.pokemonData.find(pokemon => pokemon.id === +id);
-        pokemon.catched = !pokemon.catched;
-        console.log(`${pokemon.name} был ${pokemon.catched ? "пойман" : "отпущен"} `);
-
+       this.pokemonDataService.onCatchPokemon(id);
       }
-
-      
- 
 }

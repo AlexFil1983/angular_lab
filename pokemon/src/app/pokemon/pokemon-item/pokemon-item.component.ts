@@ -21,4 +21,8 @@ export class PokemonItemComponent implements OnInit {
     })
   }
 
+  onCatchPokemon = (id) => {
+     this.pokemonDataService.onCatchPokemon(this.pokemon.id);
+  }
+
 }

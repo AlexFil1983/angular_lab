@@ -13,7 +13,6 @@ import { Pokemon } from './../pokemon.component';
 
 
 export class PokemonCardsComponent implements OnInit {
-// pokemonData = this.pokemonDataService.getAll();
 
   @Input() toggle : boolean
   @Input() pokemonData

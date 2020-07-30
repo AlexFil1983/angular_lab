@@ -6,8 +6,8 @@
 <h1>{{pokemon.name}}</h1>
 <h3>Damage: {{pokemon.damage}} </h3>
 <h3>Created: {{pokemon.created}}</h3>
-<button>Поймать покемона</button>
-<button>Edit</button>
+<button (click)="onCatchPokemon($event)">{{pokemon.catched ? 'Отпустить' : 'Поймать'}}</button>
+<button [routerLink]="['/edit/'+pokemon.id]">Edit</button>
 </div>
 </div>
 
