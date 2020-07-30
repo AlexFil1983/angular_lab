@@ -1,0 +1,29 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  width: 300px;
+  margin: 0 auto;
+}
+
+img {
+  width: 300px;
+}
+
+button {
+  margin: 5px;
+}
+
+input {
+  margin: 5px;
+}
+
+.buttons {
+  display: flex;
+  // flex-direction: row;
+}
+
+#status-red {
+  color: red;
+}

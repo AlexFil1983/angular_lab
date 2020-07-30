@@ -1,0 +1,25 @@
+<div class="pokemon-item form">
+        <img src="assets/images/{{pokemon.id}}.png">
+        <h1>Edit {{pokemon.name}}</h1>
+</div>
+
+<form [formGroup]="form" class="form" (ngSubmit)="submit()" (input)="formChanged()">
+    <label>Name: </label>
+    <input type="text" placeholder="Name" value={{pokemon.name}} formControlName="name">
+    <label>Damage: </label>
+    <input type="number" placeholder="Damage" min="1" max="100" value={{pokemon.damage}} formControlName="damage">
+    <label>Created:</label>
+    <input type="date" placeholder="Date of creation" value={{pokemon.created}} formControlName="created">
+    <p style="color: red">{{status}}</p>
+        <button type="button" mat-raised-button color="primary" (click)="openDialog()" [disabled]="formNotTouched">Save</button>
+        <button mat-raised-button color="warn" type="button" (click)="openCancel()">Cancel</button>
+        
+    
+
+</form>
+
+
+
+
+
+

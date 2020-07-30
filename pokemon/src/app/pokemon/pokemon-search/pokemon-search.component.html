@@ -1,0 +1,8 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <input type="text" placeholder="Which pokemon do you want to find?" formControlName="search">
+    <button type="submit">Search</button>
+</form>
+<p>{{ status }}</p>    
+
+
+

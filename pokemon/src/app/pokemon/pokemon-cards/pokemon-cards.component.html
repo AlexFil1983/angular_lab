@@ -1,0 +1,17 @@
+<div [ngSwitch]="toggle">
+    <div *ngSwitchCase="true" >
+        <ul *ngFor="let pokemon of pokemonData">
+           <app-pokemon-list [pokemon]="pokemon"></app-pokemon-list>
+        </ul>
+    </div>
+    <div *ngSwitchCase="false" class="pokemon-cardlist">
+    <div *ngFor="let pokemon of pokemonData">
+    <a [routerLink]="['/pokemon',  pokemon.id]"><app-pokemon-card [pokemon]="pokemon" ></app-pokemon-card></a>
+    <button id={{pokemon.id}} (click)="consoleStatus($event)">{{pokemon.catched ? 'Отпустить' : 'Поймать'}}</button>
+    <button [routerLink]="['/edit', pokemon.id]">Edit</button>
+    </div>
+
+    </div>
+    </div>
+
+    
