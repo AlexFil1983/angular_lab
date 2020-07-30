@@ -1,0 +1,13 @@
+<div [ngStyle]="{
+    border: pokemon.damage > 50 ? '2px solid red' : 'dashed 1px black'
+}"
+
+class="pokemon-card">
+<img src="assets/images/{{pokemon.id}}.png" alt={{pokemon.name}}>
+    <h4 style="text-align: center;">{{pokemon.name}}</h4>
+    <p style="text-align: center;">Damage: {{pokemon.damage}}</p>
+
+</div>
+
+
+
